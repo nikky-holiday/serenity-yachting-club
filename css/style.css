@@ -93,16 +93,17 @@ a{color:inherit;text-decoration:none}
   max-width:var(--wrap);margin:0 auto;padding:0 2rem;
   display:flex;align-items:center;justify-content:space-between;
 }
-.nav__logo{display:flex;align-items:center;gap:.75rem}
+.nav__logo{display:flex;align-items:center;gap:.9rem}
 .nav__mark{
-  height:40px;width:auto;flex:none;display:block;
-  transition:all .4s var(--ease);
+  height:58px;width:auto;flex:none;display:block;
+  transition:transform .4s var(--ease);
 }
+.nav__logo:hover .nav__mark{transform:rotate(8deg) scale(1.05)}
 .nav__name{
-  font-family:var(--serif);font-size:1.45rem;line-height:1;color:var(--ivory);
+  font-family:var(--serif);font-size:1.72rem;line-height:1;color:var(--ivory);
   display:flex;flex-direction:column;transition:color .4s var(--ease);
 }
-.nav__sub{font-family:var(--sans);font-size:.56rem;letter-spacing:.34em;text-transform:uppercase;margin-top:.28rem}
+.nav__sub{font-family:var(--sans);font-size:.62rem;letter-spacing:.36em;text-transform:uppercase;margin-top:.32rem}
 .nav__links{display:flex;align-items:center;gap:2.4rem}
 .nav__links a{
   font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ivory);
@@ -122,7 +123,7 @@ a{color:inherit;text-decoration:none}
 .nav__burger span{width:26px;height:1.5px;background:var(--ivory);transition:.3s}
 
 /* ═══ HERO ═══ */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;color:var(--ivory);overflow:hidden}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;color:var(--ivory);overflow:hidden;padding:10rem 0 3rem}
 .hero__media{
   position:absolute;inset:0;
   background:url('https://images.unsplash.com/photo-1626869710563-be671a0cd919?auto=format&fit=crop&w=2000&q=80') 72% center/cover no-repeat;
