@@ -76,8 +76,8 @@
     openModal('Забронювати «' + name + '»',
       '<p>Напишіть нам у Telegram — відповімо одразу, підберемо каюту та підтвердимо дати.</p>' +
       '<div class="modal__tg">' +
-        '<a class="btn btn--gold" href="' + TG_FOUNDER + '" target="_blank" rel="noopener" data-close>Написати засновнику</a>' +
-        '<a class="btn btn--dark" href="' + TG_MANAGER + '" target="_blank" rel="noopener" data-close>Написати менеджеру</a>' +
+        '<a class="btn btn--gold" href="' + TG_MANAGER + '" target="_blank" rel="noopener" data-close>Написати менеджеру</a>' +
+        '<a class="btn btn--dark" href="' + TG_FOUNDER + '" target="_blank" rel="noopener" data-close>Написати засновнику</a>' +
       '</div>');
   }
   document.querySelectorAll('.voyage__pay').forEach(function (btn) {
