@@ -280,8 +280,23 @@ a{color:inherit;text-decoration:none}
 /* ═══ REVIEWS ═══ */
 .reviews{background:var(--ivory);padding:clamp(5rem,11vw,9rem) 2rem;scroll-margin-top:90px}
 .reviews__head{max-width:var(--wrap);margin:0 auto 3rem}
-.reviews__grid{max-width:var(--wrap);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;align-items:start}
-.review{background:#fff;border:1px solid var(--line);padding:2rem 1.8rem;display:flex;flex-direction:column;gap:1rem;min-height:100%}
+.reviews__carousel{position:relative;max-width:var(--wrap);margin:0 auto}
+.reviews__track{
+  display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 3.2rem)/3);gap:1.6rem;
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  padding-bottom:.4rem;scrollbar-width:none;-ms-overflow-style:none;
+}
+.reviews__track::-webkit-scrollbar{display:none}
+.reviews__nav{
+  position:absolute;top:calc(50% - 23px);z-index:2;width:46px;height:46px;border-radius:50%;
+  background:#fff;border:1px solid var(--line);color:var(--navy);font-size:1.5rem;line-height:1;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  box-shadow:0 14px 34px -14px rgba(20,32,46,.45);transition:all .3s var(--ease);
+}
+.reviews__nav:hover{background:var(--navy);color:var(--ivory);border-color:var(--navy)}
+.reviews__nav--prev{left:-16px}
+.reviews__nav--next{right:-16px}
+.review{background:#fff;border:1px solid var(--line);padding:2rem 1.8rem;display:flex;flex-direction:column;gap:1rem;scroll-snap-align:start}
 .review__stars{color:var(--brass-2);letter-spacing:.18em;font-size:1rem}
 .review blockquote{font-family:var(--serif);font-style:italic;font-size:1.22rem;line-height:1.4;color:var(--navy)}
 .review figcaption{margin-top:auto;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
@@ -342,6 +357,7 @@ a{color:inherit;text-decoration:none}
   .voyages__grid{grid-template-columns:repeat(2,1fr)}
   .voyage--feature{grid-template-columns:1fr}
   .voyage--feature .voyage__img{aspect-ratio:3/2;min-height:0}
+  .reviews__track{grid-auto-columns:calc((100% - 1.6rem)/2)}
   .process__grid{grid-template-columns:repeat(2,1fr);gap:2rem 2.4rem}
   .why__grid,.contact__grid{grid-template-columns:1fr}
   .why__figure{max-width:420px}
@@ -360,7 +376,8 @@ a{color:inherit;text-decoration:none}
   .nav.menu-open .nav__burger span:nth-child(2){opacity:0}
   .nav.menu-open .nav__burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
   .voyages__grid{grid-template-columns:1fr}
-  .reviews__grid{grid-template-columns:1fr}
+  .reviews__track{grid-auto-columns:88%}
+  .reviews__nav{display:none}
   .review__row{grid-template-columns:1fr;gap:0}
   .footer__inner{flex-direction:column}
   .footer__copy{text-align:left}

@@ -101,6 +101,34 @@
     });
   });
 
+  /* ── reviews carousel ── */
+  var track = document.getElementById('reviewsTrack');
+  if (track) {
+    var step = function () {
+      var card = track.querySelector('.review');
+      return card ? card.getBoundingClientRect().width + 26 : track.clientWidth;
+    };
+    var go = function (dir) {
+      var atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+      var atStart = track.scrollLeft <= 4;
+      if (dir > 0 && atEnd) { track.scrollTo({ left: 0, behavior: 'smooth' }); return; }
+      if (dir < 0 && atStart) { track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' }); return; }
+      track.scrollBy({ left: dir * step(), behavior: 'smooth' });
+    };
+    var pv = document.querySelector('.reviews__nav--prev');
+    var nx = document.querySelector('.reviews__nav--next');
+    if (pv) pv.addEventListener('click', function () { go(-1); });
+    if (nx) nx.addEventListener('click', function () { go(1); });
+    var rtimer = setInterval(function () {
+      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 4) {
+        track.scrollTo({ left: 0, behavior: 'smooth' });
+      } else { go(1); }
+    }, 4500);
+    ['mouseenter', 'touchstart', 'focusin'].forEach(function (ev) {
+      track.addEventListener(ev, function () { clearInterval(rtimer); }, { passive: true });
+    });
+  }
+
   /* ── forms → mail.php (contact + review) ── */
   function showError(form, msg) {
     var note = form.querySelector('.review__note') || form.querySelector('.contact__disclaimer');
