@@ -45,42 +45,10 @@
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
-  /* ── booking form → mailto (static-site friendly) ── */
-  var form = document.getElementById('bookingForm');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var name = form.name.value.trim();
-      var contact = form.contactline.value.trim();
-      var voyage = form.voyage.value;
-      var msg = form.message.value.trim();
-      var subject = 'Запит на подорож — ' + (name || 'новий гість');
-      var body =
-        'Ім’я: ' + name + '\n' +
-        'Контакт: ' + contact + '\n' +
-        'Напрям: ' + voyage + '\n' +
-        'Побажання: ' + (msg || '—');
-      window.location.href =
-        'mailto:hello@serenityclub.com.ua' +
-        '?subject=' + encodeURIComponent(subject) +
-        '&body=' + encodeURIComponent(body);
-
-      form.innerHTML =
-        '<p class="kicker kicker--light">Дякуємо</p>' +
-        '<h3 style="font-family:var(--serif);font-weight:500;font-size:1.8rem;color:var(--ivory);margin-bottom:1rem;">' +
-        'Запит майже готовий</h3>' +
-        '<p style="color:rgba(246,241,231,.78);">Ми відкрили ваш поштовий застосунок з готовим листом. ' +
-        'Надішліть його — і ми звʼяжемося з вами протягом робочого дня.</p>';
-      form.classList.add('sent');
-    });
-  }
-
-  /* ── payment (monobank via Cloudflare Worker) ── */
-  var cfg = window.SERENITY_CONFIG || {};
+  /* ── modal ── */
   var modal = document.getElementById('payModal');
   var modalTitle = document.getElementById('modalTitle');
   var modalBody = document.getElementById('modalBody');
-
   function openModal(title, html) {
     modalTitle.textContent = title;
     modalBody.innerHTML = html;
@@ -100,52 +68,20 @@
     });
   }
 
-  function startPayment(btn) {
-    var tour = btn.getAttribute('data-tour');
+  /* ── booking → Telegram ── */
+  var TG_FOUNDER = 'https://t.me/nikkiholiday';
+  var TG_MANAGER = 'https://t.me/VictoriaSerenity';
+  function openBooking(btn) {
     var name = btn.getAttribute('data-name') || 'подорож';
-    var api = (cfg.paymentApi || '').replace(/\/+$/, '');
-
-    // Онлайн-оплата ще не налаштована — акуратно пояснюємо і ведемо до форми.
-    if (!api) {
-      openModal('Онлайн-оплата готується', [
-        '<p>Прямо зараз бронювання туру <strong>«' + name + '»</strong> ми оформлюємо ',
-        'персонально: залиште запит — і ми надішлемо посилання на оплату передоплати ',
-        'через monobank та підтвердимо дати.</p>',
-        '<a href="#contact" class="btn btn--gold" data-close>Залишити запит</a>'
-      ].join(''));
-      return;
-    }
-
-    btn.disabled = true;
-    openModal('Готуємо оплату…',
-      '<div class="modal__spinner"></div><p>Створюємо захищений рахунок monobank для туру ' +
-      '<strong>«' + name + '»</strong>. Зачекайте секунду.</p>');
-
-    fetch(api + '/invoice', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ tourId: tour })
-    })
-      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, data: j }; }); })
-      .then(function (res) {
-        if (res.ok && res.data && res.data.pageUrl) {
-          window.location.href = res.data.pageUrl; // → сторінка оплати monobank
-        } else {
-          throw new Error((res.data && res.data.error) || 'Не вдалося створити рахунок');
-        }
-      })
-      .catch(function (err) {
-        openModal('Щось пішло не так', [
-          '<p>' + (err.message || 'Помилка звʼязку з платіжним сервісом') + '.</p>',
-          '<p>Спробуйте ще раз або залиште запит — ми оформимо бронювання вручну.</p>',
-          '<a href="#contact" class="btn btn--dark" data-close>Залишити запит</a>'
-        ].join(''));
-      })
-      .then(function () { btn.disabled = false; });
+    openModal('Забронювати «' + name + '»',
+      '<p>Напишіть нам у Telegram — відповімо одразу, підберемо каюту та підтвердимо дати.</p>' +
+      '<div class="modal__tg">' +
+        '<a class="btn btn--gold" href="' + TG_FOUNDER + '" target="_blank" rel="noopener" data-close>Написати засновнику</a>' +
+        '<a class="btn btn--dark" href="' + TG_MANAGER + '" target="_blank" rel="noopener" data-close>Написати менеджеру</a>' +
+      '</div>');
   }
-
   document.querySelectorAll('.voyage__pay').forEach(function (btn) {
-    btn.addEventListener('click', function () { startPayment(btn); });
+    btn.addEventListener('click', function () { openBooking(btn); });
   });
 
   /* ── expandable voyage details ── */
@@ -153,8 +89,7 @@
     btn.addEventListener('click', function () {
       var panel = document.getElementById(btn.getAttribute('aria-controls'));
       if (!panel) return;
-      var willOpen = panel.hasAttribute('hidden');
-      if (willOpen) {
+      if (panel.hasAttribute('hidden')) {
         panel.removeAttribute('hidden');
         btn.setAttribute('aria-expanded', 'true');
         btn.textContent = 'Згорнути';
@@ -165,4 +100,53 @@
       }
     });
   });
+
+  /* ── forms → mail.php (contact + review) ── */
+  function showError(form, msg) {
+    var note = form.querySelector('.review__note') || form.querySelector('.contact__disclaimer');
+    if (note) { note.textContent = msg; note.style.color = '#e0a58a'; }
+  }
+  function ajaxForm(form, onSuccess) {
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      var label = btn ? btn.textContent : '';
+      if (btn) { btn.disabled = true; btn.textContent = 'Надсилаємо…'; }
+      fetch('mail.php', { method: 'POST', body: new FormData(form) })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (res) {
+          if (res && res.ok) {
+            onSuccess();
+          } else {
+            if (btn) { btn.disabled = false; btn.textContent = label; }
+            showError(form, (res && res.error) || 'Не вдалося надіслати. Спробуйте ще раз або напишіть нам у Telegram.');
+          }
+        })
+        .catch(function () {
+          if (btn) { btn.disabled = false; btn.textContent = label; }
+          showError(form, 'Немає звʼязку із сервером. Спробуйте ще раз або напишіть нам у Telegram.');
+        });
+    });
+  }
+
+  var bookingForm = document.getElementById('bookingForm');
+  ajaxForm(bookingForm, function () {
+    bookingForm.innerHTML =
+      '<p class="kicker kicker--light">Дякуємо</p>' +
+      '<h3 style="font-family:var(--serif);font-weight:500;font-size:1.8rem;color:var(--ivory);margin-bottom:1rem;">Запит надіслано</h3>' +
+      '<p style="color:rgba(246,241,231,.78);">Ми звʼяжемося з вами протягом робочого дня. Хочете швидше — напишіть у ' +
+      '<a href="' + TG_MANAGER + '" target="_blank" rel="noopener" style="color:var(--brass-2);text-decoration:underline;">Telegram</a>.</p>';
+    bookingForm.classList.add('sent');
+  });
+
+  var reviewForm = document.getElementById('reviewForm');
+  ajaxForm(reviewForm, function () {
+    reviewForm.innerHTML =
+      '<p class="kicker kicker--light" style="color:var(--brass-2);">Дякуємо</p>' +
+      '<h3 style="font-family:var(--serif);font-weight:500;font-size:1.6rem;color:var(--ivory);margin:.4rem 0 .6rem;">Відгук надіслано</h3>' +
+      '<p style="color:rgba(246,241,231,.75);">Ми опублікуємо його після невеликої перевірки. Дякуємо, що були з нами!</p>';
+    reviewForm.classList.add('sent');
+  });
+
 })();
