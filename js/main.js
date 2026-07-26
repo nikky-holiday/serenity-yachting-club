@@ -147,4 +147,22 @@
   document.querySelectorAll('.voyage__pay').forEach(function (btn) {
     btn.addEventListener('click', function () { startPayment(btn); });
   });
+
+  /* ── expandable voyage details ── */
+  document.querySelectorAll('.voyage__more').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var panel = document.getElementById(btn.getAttribute('aria-controls'));
+      if (!panel) return;
+      var willOpen = panel.hasAttribute('hidden');
+      if (willOpen) {
+        panel.removeAttribute('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.textContent = 'Згорнути';
+      } else {
+        panel.setAttribute('hidden', '');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.textContent = 'Детальніше';
+      }
+    });
+  });
 })();
