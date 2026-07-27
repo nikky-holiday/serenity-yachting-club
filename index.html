@@ -3,521 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serenity Yachting Club — приватні яхтові подорожі світом</title>
-  <meta name="description" content="Serenity Yachting Club — приватний клуб яхтових подорожей. Оренда яхт, авторські маршрути та бездоганна організація. Офіс у Києві, море — по всьому світу." />
-
-  <!-- Open Graph / соцмережі -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Serenity Yachting Club" />
-  <meta property="og:locale" content="uk_UA" />
-  <meta property="og:url" content="https://serenityyachting.club/" />
-  <meta property="og:title" content="Serenity Yachting Club — авторські яхтові подорожі" />
-  <meta property="og:description" content="Авторські морські подорожі та оренда яхт по всьому світу — від островів Греції та Італії до Карибів. Камерні групи, вітрильні катамарани, сервіс «під ключ»." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1626869710563-be671a0cd919?auto=format&fit=crop&w=1200&h=630&q=80" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Serenity Yachting Club — авторські яхтові подорожі" />
-  <meta name="twitter:description" content="Авторські морські подорожі та оренда яхт по всьому світу. Камерні групи, вітрильні катамарани, сервіс «під ключ»." />
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1626869710563-be671a0cd919?auto=format&fit=crop&w=1200&h=630&q=80" />
-
+  <title>Serenity Yachting Club</title>
+  <meta name="robots" content="noindex" />
+  <meta name="description" content="Serenity Yachting Club — переходьте на офіційний сайт serenityyachting.club" />
   <link rel="icon" type="image/svg+xml" href="assets/serenity-mark.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{--navy:#14202e;--ivory:#f6f1e7;--brass:#b08d57;--brass-2:#c2a878}
+    html,body{height:100%}
+    body{
+      font-family:'Jost',-apple-system,'Segoe UI',sans-serif;
+      color:var(--ivory);text-align:center;background:var(--navy);
+      min-height:100vh;display:flex;align-items:center;justify-content:center;
+      overflow:hidden;position:relative;padding:2rem;-webkit-font-smoothing:antialiased;
+    }
+    .bg{
+      position:absolute;inset:0;
+      background:url('https://images.unsplash.com/photo-1769610352818-cf8fa29ccf9a?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+      transform:scale(1.06);animation:zoom 20s ease-out forwards;
+    }
+    @keyframes zoom{to{transform:scale(1)}}
+    .veil{position:absolute;inset:0;background:linear-gradient(rgba(9,17,27,.70) 0%,rgba(9,17,27,.84) 100%)}
+    .box{position:relative;z-index:2;max-width:660px;animation:rise 1s cubic-bezier(.22,.61,.36,1) both}
+    @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+    .mark{width:104px;height:auto;display:block;margin:0 auto 1.5rem;filter:drop-shadow(0 10px 28px rgba(0,0,0,.45))}
+    .name{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:2.1rem;line-height:1;letter-spacing:.01em}
+    .sub{font-size:.66rem;letter-spacing:.4em;text-transform:uppercase;color:var(--brass-2);margin-top:.5rem}
+    .msg{
+      font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;
+      font-size:clamp(1.9rem,5.2vw,3.1rem);line-height:1.18;
+      margin:2.6rem auto 2.2rem;max-width:16ch;text-shadow:0 2px 22px rgba(0,0,0,.45);
+    }
+    .btn{
+      display:inline-block;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;
+      padding:1.1rem 2.7rem;background:var(--brass);color:#fff;text-decoration:none;
+      border:1px solid var(--brass);transition:background .35s ease,color .35s ease,border-color .35s ease;
+    }
+    .btn:hover{background:transparent;color:var(--brass-2);border-color:var(--brass-2)}
+    .url{margin-top:1.4rem;font-size:.74rem;letter-spacing:.16em;color:rgba(246,241,231,.6)}
+    .url a{color:inherit;text-decoration:none}
+  </style>
 </head>
 <body>
-
-  <!-- ░░ NAV ░░ -->
-  <header class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="#hero" class="nav__logo">
-        <img class="nav__mark" src="assets/serenity-mark.svg" alt="" width="67" height="58" />
-        <span class="nav__name">Serenity<span class="nav__sub">Yachting&nbsp;Club</span></span>
-      </a>
-      <nav class="nav__links" id="navLinks">
-        <a href="#about">Клуб</a>
-        <a href="#voyages">Подорожі</a>
-        <a href="#process">Як це працює</a>
-        <a href="#why">Чому ми</a>
-        <a href="#reviews">Відгуки</a>
-        <a href="#contact" class="nav__cta">Забронювати</a>
-      </nav>
-      <button class="nav__burger" id="burger" aria-label="Меню">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- ░░ HERO ░░ -->
-  <section class="hero" id="hero">
-    <div class="hero__media"></div>
-    <div class="hero__veil"></div>
-    <div class="hero__content">
-      <p class="kicker kicker--light">Авторські яхтові подорожі · з 2016 року</p>
-      <h1 class="hero__title">Справжня свобода моря:<br />Авторські подорожі та оренда яхт по всьому світу</h1>
-      <p class="hero__lead">Організовуємо яхтові подорожі та чартери «під ключ» з 2016 року. Підбираємо найкращі яхти та катамарани, беремо на себе всю логістику маршруту та збираємо компанію однодумців. Вам лишається тільки прибути на борт.</p>
-      <div class="hero__actions">
-        <a href="#voyages" class="btn btn--gold">Обрати подорож</a>
-        <a href="#about" class="btn btn--ghost">Про клуб</a>
-      </div>
-    </div>
-    <div class="hero__scroll"><span>Гортайте</span><i></i></div>
-  </section>
-
-  <!-- ░░ MARQUEE / TRUST ░░ -->
-  <div class="strip">
-    <div class="strip__inner">
-      <a href="#voyage-lipari">Еольські острови</a><i>·</i><a href="#voyage-lipari">Стромболі</a><i>·</i><a href="#voyage-sardinia">Сардинія</a><i>·</i><a href="#voyage-sardinia">Корсика</a><i>·</i><a href="#voyage-amalfi">Амальфі</a><i>·</i><a href="#voyage-amalfi">Капрі</a><i>·</i><a href="#voyage-saronic">Саронічна затока</a><i>·</i><a href="#voyage-saronic">Гідра</a><i>·</i><a href="#voyage-wellness">Wellness-ретрит</a><i>·</i>
-      <a href="#voyage-lipari" aria-hidden="true" tabindex="-1">Еольські острови</a><i>·</i><a href="#voyage-sardinia" aria-hidden="true" tabindex="-1">Сардинія</a><i>·</i><a href="#voyage-sardinia" aria-hidden="true" tabindex="-1">Корсика</a><i>·</i><a href="#voyage-amalfi" aria-hidden="true" tabindex="-1">Амальфі</a><i>·</i><a href="#voyage-amalfi" aria-hidden="true" tabindex="-1">Капрі</a><i>·</i><a href="#voyage-saronic" aria-hidden="true" tabindex="-1">Саронічна затока</a><i>·</i><a href="#voyage-saronic" aria-hidden="true" tabindex="-1">Гідра</a><i>·</i><a href="#voyage-wellness" aria-hidden="true" tabindex="-1">Wellness-ретрит</a><i>·</i>
-    </div>
-  </div>
-
-  <!-- ░░ ABOUT ░░ -->
-  <section class="about" id="about">
-    <div class="about__media"></div>
-    <div class="about__veil"></div>
-    <div class="about__inner reveal">
-      <div class="about__text">
-        <p class="kicker kicker--light">Клуб та спільнота</p>
-        <h2 class="section-title section-title--light">Більше ніж чартер.<br />Спільнота тих, хто цінує справжню свободу та якісний відпочинок на морі.</h2>
-        <p>Serenity Yachting Club — це простір для людей, які обирають комфорт, естетику та драйв справжнього яхтингу. Ми не пропонуємо шаблонні тури — ми створюємо авторські морські подорожі від мальовничих островів Греції та Італії до екзотичних Карибів.</p>
-        <p>Ми беремо на себе абсолютно все: від ретельного відбору сучасних яхт і катамаранів у надійних світових судноплавних компаній до побудови оптимального маршруту, вибору досвідченого шкіпера та підготовки кожної деталі на борту. Формуючи камерні екіпажі, ми дбаємо про те, щоб у кожному плаванні вас оточувала атмосфера затишку, безпеки та однодумців, з якими приємно ділити палубу.</p>
-        <p>Вам залишається лише ступити на борт та насолоджуватися морем.</p>
-        <div class="about__stats">
-          <div><strong>10&nbsp;років</strong><span>Досвід в яхтингу (з 2016)</span></div>
-          <div><strong>40+</strong><span>Перевірених маршрутів</span></div>
-          <div><strong>6–12</strong><span>Місць у камерних групах</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ░░ VOYAGES ░░ -->
-  <section class="voyages" id="voyages">
-    <div class="voyages__head reveal">
-      <p class="kicker">Авторські маршрути</p>
-      <h2 class="section-title">Маршрути, які ми створили<br />як для себе</h2>
-      <p class="section-lead">Кожну локацію ми пройшли особисто — від затишних марин до таємних бухт. Вам залишається лише обрати свій напрямок, а всю логістику ми беремо на себе.</p>
-    </div>
-
-    <!-- ░ ВЕЛИКА КАРТКА ░ -->
-    <article class="voyage voyage--feature reveal" id="voyage-lipari">
-      <div class="voyage__img"><img src="https://images.unsplash.com/photo-1544951493-01c350afa408?auto=format&fit=crop&w=1400&q=80" alt="Еольські острови, острів Саліна" loading="lazy" /><span class="voyage__badge">Хіт сезону · Еольські острови</span></div>
-      <div class="voyage__body">
-        <p class="voyage__region">Італія · Ліпарські (Еольські) острови</p>
-        <h3>Вулкани, затишні бухти та італійська Dolce Vita</h3>
-        <p class="voyage__desc">Бархатний вересень на Сицилії та Ліпарах: тепле море, вечері під спалахи Стромболі й щоденні купання в диких бухтах, до яких не дістатися з суші.</p>
-        <ul class="voyage__meta">
-          <li><b>05–12 вересня</b> · 8 днів / 7 ночей</li>
-          <li>Вітрильний катамаран, 6–12 осіб</li>
-          <li>Старт і фініш: Капо-д'Орландо (Сицилія)</li>
-        </ul>
-        <div class="voyage__foot">
-          <div class="voyage__prices"><span class="voyage__price">€3 000<i>/ каюту</i></span><span class="voyage__deposit">передоплата 50%</span></div>
-          <div class="voyage__actions">
-            <button class="voyage__more" type="button" aria-expanded="false" aria-controls="detail-lipari">Детальніше</button>
-            <button class="voyage__pay" data-tour="lipari" data-name="Ліпарські острови, Італія">Забронювати →</button>
-          </div>
-        </div>
-        <div class="voyage__detail" id="detail-lipari" hidden>
-          <p>Вересень на Сицилії та Ліпарських островах — це бархатний сезон у своєму найкращому прояві. Море прогріте до максимуму, літній ажіотаж у маринах вщухає, а лагідне сонце створює ідеальні умови для морського відпочинку.</p>
-          <p>Ми вирушаємо із сучасної марини Capo d'Orlando на просторому вітрильному катамарані. Завдяки камерному екіпажу (6–12 осіб) на борту панує приватна, дружня атмосфера, а сам катамаран стає вашим затишним плавучим готелем, який щодня відкриває нові горизонти.</p>
-          <h4>Що чекає на вас у цій подорожі</h4>
-          <ul>
-            <li><b>Щоденне купання в диких бухтах.</b> Щодня — зупинки в наймальовничіших затоках архіпелагу, до яких неможливо дістатися з суші: кришталева вода, гроти, купання просто з корми та сапбординг у бірюзових лагунах.</li>
-            <li><b>Нічна вистава Стромболі.</b> Вечірня якірна стоянка біля підніжжя діючого вулкана — ви вечеряєте на палубі під гуркіт і спалахи лави Sciara del Fuoco на тлі зоряного неба.</li>
-            <li><b>Смак та естетика Саліни.</b> Зелена перлина архіпелагу: дегустація місцевого вина Мальвазія та вечеря в затишному сімейному ресторані з видом на море.</li>
-            <li><b>Білосніжна Панарея.</b> Найстильніший острів архіпелагу — біла архітектура, атмосферні вулички та лаунж-бари.</li>
-            <li><b>Марсіанські пейзажі Вулкано та шарм Ліпарі.</b> Підйом до кратера, релакс у сірчаних джерелах і прогулянки старовинним фортечним містом.</li>
-          </ul>
-          <h4>Чому цей формат ідеальний</h4>
-          <ul>
-            <li><b>Затишок і приватність.</b> Група 6–12 осіб гарантує максимум особистого простору, відсутність натовпу та комфортний ритм подорожі.</li>
-            <li><b>Нічого зайвого.</b> Повний баланс між активним дослідженням островів, морськими переходами та розслабленим відпочинком на воді.</li>
-          </ul>
-          <h4>Деталі та організація</h4>
-          <ul>
-            <li><b>У вартість входить:</b> місце в двомісній каюті на катамарані, послуги професійного капітана, розробка маршруту, підготовка судна, постільна білизна та сапборд.</li>
-            <li><b>Досвід:</b> досвід у яхтингу не потрібен — наш шкіпер подбає про всі технічні питання та безпеку.</li>
-          </ul>
-          <button class="voyage__pay voyage__pay--wide" data-tour="lipari" data-name="Ліпарські острови, Італія">Забронювати цю подорож →</button>
-        </div>
-      </div>
-    </article>
-
-    <div class="voyages__grid">
-
-      <!-- Сардинія – Корсика -->
-      <article class="voyage reveal" id="voyage-sardinia">
-        <div class="voyage__img"><img src="https://images.unsplash.com/photo-1604321688638-3eb08276fdaa?auto=format&fit=crop&w=1100&q=80" alt="Сардинія, смарагдові бухти" loading="lazy" /><span class="voyage__badge">Тірренське море</span></div>
-        <div class="voyage__body">
-          <p class="voyage__region">Італія · Сардинія та Корсика</p>
-          <h3>Смарагдові бухти Сардинії та Корсики</h3>
-          <p class="voyage__desc">Серпень на межі двох островів: смарагдова вода Сардинії, дика Корсика та бухти, які частіше бачать з води, ніж із суші.</p>
-          <ul class="voyage__meta">
-            <li><b>08–15 серпня</b> · 8 днів / 7 ночей</li>
-            <li>Вітрильний катамаран, 6–12 осіб</li>
-            <li>Старт: Ольбія (Сардинія)</li>
-          </ul>
-          <div class="voyage__foot">
-            <div class="voyage__prices"><span class="voyage__price">€3 100<i>/ каюту</i></span><span class="voyage__deposit">передоплата 50%</span></div>
-            <div class="voyage__actions">
-              <button class="voyage__more" type="button" aria-expanded="false" aria-controls="detail-sardinia">Детальніше</button>
-              <button class="voyage__pay" data-tour="sardinia" data-name="Сардинія та Корсика">Забронювати →</button>
-            </div>
-          </div>
-          <div class="voyage__detail" id="detail-sardinia" hidden>
-            <p>Серпень — найкращий час, щоб пройти під вітрилом від Сардинії до Корсики. Стартуємо з Ольбії й ідемо вздовж узбереж, де смарагдова вода змінюється рожевими пляжами та крейдяними скелями.</p>
-            <ul>
-              <li><b>Архіпелаг Ла-Маддалена.</b> Купання в бухтах національного парку та рожеві піски, до яких пускають лише з моря.</li>
-              <li><b>Протока Боніфачо.</b> Перехід до дикої Корсики й підхід до крейдяних скель старовинного міста-фортеці.</li>
-              <li><b>Вечері у рибних портах.</b> Свіжі морепродукти, місцеве вино й аперитив на палубі під захід сонця.</li>
-              <li><b>Тиша без натовпу.</b> Стоянки там, де немає ні готелів, ні юрби — лише море, скелі й ваш екіпаж.</li>
-            </ul>
-            <p>У вартість входить місце в двомісній каюті, послуги капітана, розробка маршруту, підготовка судна, постільна білизна та сапборд. Досвід у яхтингу не потрібен.</p>
-            <button class="voyage__pay voyage__pay--wide" data-tour="sardinia" data-name="Сардинія та Корсика">Забронювати цю подорож →</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Амальфі -->
-      <article class="voyage reveal" id="voyage-amalfi">
-        <div class="voyage__img"><img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1100&q=80" alt="Амальфітанське узбережжя" loading="lazy" /><span class="voyage__badge">Тірренське море</span></div>
-        <div class="voyage__body">
-          <p class="voyage__region">Італія · Амальфітанське узбережжя</p>
-          <h3>Амальфі та Капрі під вітрилами</h3>
-          <p class="voyage__desc">Вересень на узбережжі, коли спека спадає, а колір моря стає густішим. Від Неаполя — повз лимонні тераси Позітано до гротів Капрі.</p>
-          <ul class="voyage__meta">
-            <li><b>12–19 вересня</b> · 8 днів / 7 ночей</li>
-            <li>Вітрильний катамаран, 6–12 осіб</li>
-            <li>Старт: Неаполь</li>
-          </ul>
-          <div class="voyage__foot">
-            <div class="voyage__prices"><span class="voyage__price">€3 100<i>/ каюту</i></span><span class="voyage__deposit">передоплата 50%</span></div>
-            <div class="voyage__actions">
-              <button class="voyage__more" type="button" aria-expanded="false" aria-controls="detail-amalfi">Детальніше</button>
-              <button class="voyage__pay" data-tour="amalfi" data-name="Амальфітанське узбережжя, Італія">Забронювати →</button>
-            </div>
-          </div>
-          <div class="voyage__detail" id="detail-amalfi" hidden>
-            <p>Найкрасивіше узбережжя Італії — з води. Ми стартуємо з Неаполя й неквапливо огинаємо миси Амальфі, зупиняючись там, де берегова юрба залишається позаду.</p>
-            <ul>
-              <li><b>Капрі та Блакитний грот.</b> Скелі Фаральйоні, купання у прозорій воді й ранкова кава, поки острів ще спить.</li>
-              <li><b>Позітано з моря.</b> Різнокольорові будиночки, що сходами спускаються до води, і вечірній аперитив на палубі.</li>
-              <li><b>Іск'я та термальні бухти.</b> Тепла вулканічна вода й тиша поза туристичними маршрутами.</li>
-              <li><b>Смак Кампанії.</b> Лимончелло, моцарела ді буфала та вечеря в сімейній траторії.</li>
-            </ul>
-            <p>У вартість входить місце в двомісній каюті, послуги капітана, розробка маршруту, підготовка судна, постільна білизна та сапборд. Досвід у яхтингу не потрібен.</p>
-            <button class="voyage__pay voyage__pay--wide" data-tour="amalfi" data-name="Амальфітанське узбережжя, Італія">Забронювати цю подорож →</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Саронічна затока -->
-      <article class="voyage reveal" id="voyage-saronic">
-        <div class="voyage__img"><img src="https://images.unsplash.com/photo-1726687848565-a402f48196ce?auto=format&fit=crop&w=1100&q=80" alt="Саронічна затока, Греція" loading="lazy" /><span class="voyage__badge">Саронічна затока</span></div>
-        <div class="voyage__body">
-          <p class="voyage__region">Греція · Саронічна затока</p>
-          <h3>Саронічні острови за годину від Афін</h3>
-          <p class="voyage__desc">Класична Греція поруч зі столицею: Егіна, Порос, Гідра. Острови, де немає автівок, а вечір пахне сосною й морем.</p>
-          <ul class="voyage__meta">
-            <li><b>19–26 вересня</b> · 8 днів / 7 ночей</li>
-            <li>Вітрильний катамаран, 6–12 осіб</li>
-            <li>Старт: Афіни (марина Алімос)</li>
-          </ul>
-          <div class="voyage__foot">
-            <div class="voyage__prices"><span class="voyage__price">€2 500<i>/ каюту</i></span><span class="voyage__deposit">передоплата 50%</span></div>
-            <div class="voyage__actions">
-              <button class="voyage__more" type="button" aria-expanded="false" aria-controls="detail-saronic">Детальніше</button>
-              <button class="voyage__pay" data-tour="saronic" data-name="Саронічна затока, Греція">Забронювати →</button>
-            </div>
-          </div>
-          <div class="voyage__detail" id="detail-saronic" hidden>
-            <p>Ідеальний маршрут для першого разу під вітрилом: короткі спокійні переходи, тепле вересневе море й острови з характером — усе за годину ходу від Афін.</p>
-            <ul>
-              <li><b>Гідра.</b> Кам'яні особняки, галереї й повна тиша — на острові заборонений автотранспорт.</li>
-              <li><b>Порос та Ангістрі.</b> Купання в соснових бухтах із бірюзовою водою просто з борту.</li>
-              <li><b>Егіна.</b> Знамениті фісташки, храм Афаї та вечеря на набережній рибного порту.</li>
-              <li><b>Легкий ритм.</b> Ранкові переходи під вітрилом і вечори на якорі — без поспіху та натовпу.</li>
-            </ul>
-            <p>У вартість входить місце в двомісній каюті, послуги капітана, розробка маршруту, підготовка судна, постільна білизна та сапборд. Досвід у яхтингу не потрібен.</p>
-            <button class="voyage__pay voyage__pay--wide" data-tour="saronic" data-name="Саронічна затока, Греція">Забронювати цю подорож →</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Wellness-ретрит -->
-      <article class="voyage reveal" id="voyage-wellness">
-        <div class="voyage__img"><img src="https://images.unsplash.com/photo-1636792565802-b0152ae76132?auto=format&fit=crop&w=1100&q=80" alt="Йога на палубі катамарана" loading="lazy" /><span class="voyage__badge">Wellness-ретрит</span></div>
-        <div class="voyage__body">
-          <p class="voyage__region">Італія · Еольські острови</p>
-          <h3>Wellness-ретрит: йога, море та любов до себе</h3>
-          <p class="voyage__desc">Тематична подорож Еольськими островами про йогу, усвідомлене харчування та любов до себе і світу — коли море стає головним терапевтом.</p>
-          <ul class="voyage__meta">
-            <li><b>03–10 жовтня</b> · 8 днів / 7 ночей</li>
-            <li>Вітрильний катамаран, 6–12 осіб</li>
-            <li>Старт: Сицилія</li>
-          </ul>
-          <div class="voyage__foot">
-            <div class="voyage__prices"><span class="voyage__price">€3 100<i>/ каюту</i></span><span class="voyage__deposit">передоплата 50%</span></div>
-            <div class="voyage__actions">
-              <button class="voyage__more" type="button" aria-expanded="false" aria-controls="detail-wellness">Детальніше</button>
-              <button class="voyage__pay" data-tour="eolian-wellness" data-name="Wellness-ретрит, Еольські острови">Забронювати →</button>
-            </div>
-          </div>
-          <div class="voyage__detail" id="detail-wellness" hidden>
-            <p>Жовтень, тепле море й Еольські острови — ідеальні декорації, щоб сповільнитися. Ця подорож поєднує яхтинг із практиками, які повертають вас до себе.</p>
-            <ul>
-              <li><b>Ранкова йога на палубі.</b> Асани та дихальні практики на світанку, коли море ще спить.</li>
-              <li><b>Свідоме харчування.</b> Сезонні продукти Сицилії, риба, овочі та вина Саліни — легко й смачно.</li>
-              <li><b>Море як терапія.</b> Купання в диких бухтах, сапбординг і повільні переходи під вітрилом.</li>
-              <li><b>Вечірні практики вдячності.</b> Медитація й тиша під спалахи Стромболі на тлі зоряного неба.</li>
-            </ul>
-            <p>У вартість входить місце в двомісній каюті, послуги капітана, супровід практик, підготовка судна, постільна білизна та сапборд. Досвід у йозі та яхтингу не потрібен.</p>
-            <button class="voyage__pay voyage__pay--wide" data-tour="eolian-wellness" data-name="Wellness-ретрит, Еольські острови">Забронювати цю подорож →</button>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-    <p class="voyages__note reveal">Не бачите свого напряму? Ми складаємо приватні маршрути під запит — від Сейшел до норвезьких фʼордів.</p>
-  </section>
-
-  <!-- ░░ PROCESS ░░ -->
-  <section class="process" id="process">
-    <div class="process__head reveal">
-      <p class="kicker kicker--light">Як це працює</p>
-      <h2 class="section-title section-title--light">Чотири кроки до вашої<br />ідеальної яхтової подорожі</h2>
-    </div>
-    <div class="process__grid">
-      <div class="step reveal"><span class="step__no">01</span><h3>Консультація та ідея</h3><p>Знайомимося, обговорюємо ваші побажання, рівень комфорту та бюджет. Ви ділитеся баченням відпочинку — ми підбираємо найкращий акваторіальний напрямок.</p></div>
-      <div class="step reveal"><span class="step__no">02</span><h3>Вибір яхти та маршруту</h3><p>Підбираємо перевірений катамаран або вітрильну яхту, узгоджуємо досвідченого шкіпера та вивіряємо кожен день плавання — від затишних бухт до ресторанчиків на березі.</p></div>
-      <div class="step reveal"><span class="step__no">03</span><h3>Формат та компанія</h3><p>Обирайте зручний формат: забронюйте каюту в авторському турі серед однодумців або замовіть приватний чартер повністю для вашої родини чи друзів.</p></div>
-      <div class="step reveal"><span class="step__no">04</span><h3>Відпочинок «під ключ»</h3><p>Беремо на себе всі деталі: трансфер, закупівлю провізії, страхування та логістику. Вам залишається лише ступити на палубу і насолоджуватися морем.</p></div>
-    </div>
-  </section>
-
-  <!-- ░░ WHY ░░ -->
-  <section class="why" id="why">
-    <div class="why__grid">
-      <figure class="why__figure reveal">
-        <img src="https://images.unsplash.com/photo-1658754491350-e620df293b48?auto=format&fit=crop&w=900&q=80" alt="Келих вина на палубі на тлі моря" loading="lazy" />
-      </figure>
-      <div class="why__text reveal">
-        <p class="kicker">Переваги нашого сервісу</p>
-        <h2 class="section-title">Комфортний яхтинг,<br />де про все вже подбали</h2>
-        <ul class="why__list">
-          <li><b>Український сервіс та офіс.</b> Прозорий договір, підтримка 24/7 та розрахунки рідною мовою — без прихованих комісій і складних умов.</li>
-          <li><b>Особиста перевірка кожної яхти.</b> Орендуємо судна та катамарани лише у перевірених світових партнерів і тільки після особистого огляду. Жодних «сюрпризів» на борту.</li>
-          <li><b>Відпочинок у своєму ритмі.</b> Ніяких штормів чи спортивної виснажливості — лише затишні бухти, теплі вечори на палубі та повна безпека.</li>
-          <li><b>Камерні групи 6–12 осіб.</b> Ви подорожуєте серед своїх, без натовпів і метушні, насолоджуючись приватністю.</li>
-          <li><b>Продуманий консьєрж-сервіс.</b> Організуємо все: від трансферу з аеропорту та бронювання найкращих ресторанів до приватних дегустацій.</li>
-        </ul>
-        <a href="#contact" class="btn btn--dark">Обговорити подорож</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ░░ GALLERY ░░ -->
-  <section class="gallery reveal" aria-label="Галерея">
-    <img src="https://images.unsplash.com/photo-1580502304784-8985b7eb7260?auto=format&fit=crop&w=800&q=80" alt="Санторіні, Греція" loading="lazy" />
-    <img src="https://images.unsplash.com/photo-1583844056361-4418a8f2a985?auto=format&fit=crop&w=800&q=80" alt="Позітано, Амальфітанське узбережжя" loading="lazy" />
-    <img src="https://images.unsplash.com/photo-1770504684414-cbb9b3c91c95?auto=format&fit=crop&w=800&q=80" alt="Яхти в бірюзовій затоці" loading="lazy" />
-    <img src="https://images.unsplash.com/photo-1663513628041-1ca7257e853d?auto=format&fit=crop&w=800&q=80" alt="Затишна бухта з висоти" loading="lazy" />
-    <img src="https://images.unsplash.com/photo-1605387202149-47169c4ea58a?auto=format&fit=crop&w=800&q=80" alt="Захід сонця під вітрилами" loading="lazy" />
-    <img src="https://images.unsplash.com/photo-1510122464847-ed1effe080f5?auto=format&fit=crop&w=800&q=80" alt="Купання в кришталевій воді" loading="lazy" />
-  </section>
-
-  <!-- ░░ REVIEWS ░░ -->
-  <section class="reviews" id="reviews">
-    <div class="reviews__head reveal">
-      <p class="kicker">Відгуки</p>
-      <h2 class="section-title">Що кажуть наші гості</h2>
-      <p class="section-lead">Найкраще про подорожі розкажуть ті, хто вже був на борту.</p>
-    </div>
-
-    <div class="reviews__carousel reveal">
-      <button class="reviews__nav reviews__nav--prev" type="button" aria-label="Попередній відгук">‹</button>
-      <div class="reviews__track" id="reviewsTrack">
-      <figure class="review">
-        <div class="review__stars" aria-label="Оцінка 5 із 5">★★★★★</div>
-        <blockquote>Сім днів, за які ми знову закохалися — одне в одного й у море. Лимонні тераси Позітано, тиша ранкових бухт і вечері, коли не хочеться, щоб день закінчувався. А спокійно й безпечно було завдяки Миколі — дякуємо.</blockquote>
-        <figcaption>Олена та Дмитро · Амальфі</figcaption>
-      </figure>
-      <figure class="review">
-        <div class="review__stars" aria-label="Оцінка 5 із 5">★★★★★</div>
-        <blockquote>Ти вечеряєш на палубі, а над тобою спалахує Стромболі — і просто розумієш, що щасливий. Це був наш найспокійніший тиждень, без жодної тривоги. Окреме дякую Миколі та всій команді.</blockquote>
-        <figcaption>Ірина та Сергій · Еольські острови</figcaption>
-      </figure>
-      <figure class="review">
-        <div class="review__stars" aria-label="Оцінка 5 із 5">★★★★★</div>
-        <blockquote>Море, сосни, порожні бухти й відчуття, що час нарешті належить нам. Усе було продумано так, що ми лише насолоджувалися. Дякуємо Тарасу — з ним спокійно й весело.</blockquote>
-        <figcaption>Марта та Андрій · Саронічна затока</figcaption>
-      </figure>
-      <figure class="review">
-        <div class="review__stars" aria-label="Оцінка 5 із 5">★★★★★</div>
-        <blockquote>Ми давно так не відпочивали. Смарагдові затоки Сардинії, перехід до дикої Корсики, вечері у рибних портах — і жодного клопоту з нашого боку. Дякуємо Анатолію за впевненість і безпеку навіть у відкритому морі.</blockquote>
-        <figcaption>Катерина та Олег · Сардинія і Корсика</figcaption>
-      </figure>
-      <figure class="review">
-        <div class="review__stars" aria-label="Оцінка 5 із 5">★★★★★</div>
-        <blockquote>Це була свобода, якої нам так бракувало: біле світло Кікладів, купання просто з борту, вітер і тиша. Ми відчували цілковитий спокій. Дякуємо Миколі та клубу за бездоганну організацію.</blockquote>
-        <figcaption>Юлія та Максим · Кіклади</figcaption>
-      </figure>
-      <figure class="review">
-        <div class="review__stars" aria-label="Оцінка 5 із 5">★★★★★</div>
-        <blockquote>Бірюза, черепахи біля борту й ром на безлюдному пляжі — Кариби виявилися ще кращими, ніж на картинках. Ми просто відпочивали, бо про все подбали за нас. Дякуємо Олександру — він знав кожну затоку.</blockquote>
-        <figcaption>Наталія та Віктор · Британські Віргінські острови</figcaption>
-      </figure>
-      <figure class="review">
-        <div class="review__stars" aria-label="Оцінка 5 із 5">★★★★★</div>
-        <blockquote>На борту була атмосфера, з якої не хотілося виходити: спокій, море й жодного поспіху. Найкраща наша відпустка — без перебільшень. Дякуємо Миколі та команді за турботу.</blockquote>
-        <figcaption>Оксана та Роман · Стромболі та Ліпари</figcaption>
-      </figure>
-      <figure class="review">
-        <div class="review__stars" aria-label="Оцінка 5 із 5">★★★★★</div>
-        <blockquote>Карибське сонце, тепла вода й вечори, які хотілося розтягнути на місяць. Ми почувалися в безпеці щохвилини й нарешті повністю розслабилися. Дякуємо Тарасу — довіряєш йому з перших хвилин.</blockquote>
-        <figcaption>Анна та Павло · Антигуа</figcaption>
-      </figure>
-      <figure class="review">
-        <div class="review__stars" aria-label="Оцінка 5 із 5">★★★★★</div>
-        <blockquote>Капрі на світанку, Блакитний грот, аперитив, коли яхта повільно огинає мис… Ми лише відпочивали — усе інше зробила команда. Це був справжній релакс. Окреме дякую Миколі за увагу до кожної деталі.</blockquote>
-        <figcaption>Софія та Ігор · Амальфі та Капрі</figcaption>
-      </figure>
-      <figure class="review">
-        <div class="review__stars" aria-label="Оцінка 5 із 5">★★★★★</div>
-        <blockquote>Хорватські острови, прозора вода й відчуття, що не треба думати ні про що. Тиждень, який хочеться пережити ще раз. Дякуємо Анатолію за спокій і безпеку на кожному переході.</blockquote>
-        <figcaption>Вікторія та Богдан · Адріатика</figcaption>
-      </figure>
-      <figure class="review">
-        <div class="review__stars" aria-label="Оцінка 5 із 5">★★★★★</div>
-        <blockquote>Гренадини — це поєднання мрії: бірюза, тиша й ми вдвох посеред океану. Абсолютний релакс і турбота на кожному кроці. Дякуємо Олександру та клубу за ідеальну організацію.</blockquote>
-        <figcaption>Дарія та Артем · Гренадини</figcaption>
-      </figure>
-      <figure class="review">
-        <div class="review__stars" aria-label="Оцінка 5 із 5">★★★★★</div>
-        <blockquote>Ми просто жили: купалися, сміялися, зустрічали заходи сонця й ні про що не турбувалися. Море задоволення й повний спокій. Дякуємо Serenity та Миколі — вони взяли на себе геть усе.</blockquote>
-        <figcaption>Людмила та Євген · Саронічні острови</figcaption>
-      </figure>
-    </div>
-      <button class="reviews__nav reviews__nav--next" type="button" aria-label="Наступний відгук">›</button>
-    </div>
-
-    <div class="reviews__cta reveal">
-      <h3>Були з нами? Поділіться враженнями</h3>
-      <p>Ми публікуємо відгуки після невеликої перевірки — дякуємо, що допомагаєте іншим із вибором.</p>
-      <form class="review__form" id="reviewForm">
-        <input type="hidden" name="_type" value="review" />
-        <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
-        <div class="review__row">
-          <div class="field">
-            <label for="rvName">Ваше імʼя</label>
-            <input type="text" id="rvName" name="name" required placeholder="Як вас підписати" />
-          </div>
-          <div class="field">
-            <label for="rvRating">Оцінка</label>
-            <select id="rvRating" name="rating">
-              <option value="5">★★★★★ — чудово</option>
-              <option value="4">★★★★ — добре</option>
-              <option value="3">★★★ — нормально</option>
-              <option value="2">★★ — так собі</option>
-              <option value="1">★ — погано</option>
-            </select>
-          </div>
-        </div>
-        <div class="field">
-          <label for="rvText">Відгук</label>
-          <textarea id="rvText" name="text" rows="4" required placeholder="Розкажіть про свою подорож"></textarea>
-        </div>
-        <button type="submit" class="btn btn--dark">Залишити відгук</button>
-        <p class="review__note" id="reviewNote" role="status"></p>
-      </form>
-    </div>
-  </section>
-
-  <!-- ░░ CONTACT ░░ -->
-  <section class="contact" id="contact">
-    <div class="contact__grid">
-      <div class="contact__info reveal">
-        <p class="kicker kicker--light">Забронювати</p>
-        <h2 class="section-title section-title--light">Почнімо з розмови</h2>
-        <p class="contact__lead">Залиште кілька слів про себе — і ми зателефонуємо, щоб неквапливо обговорити напрям, дати та компанію. Жодних шаблонних пропозицій.</p>
-        <ul class="contact__details">
-          <li><span>Офіс</span> Київ, Андріївський узвіз, 21, 3 поверх</li>
-          <li><span>Телефон</span> <a href="tel:+380981937735">+380 98 193 77 35</a>, <a href="tel:+393513751546">+39 351 375 15 46</a></li>
-          <li><span>Пошта</span> <a href="mailto:mykola@serenityyachting.club">mykola@serenityyachting.club</a>, <a href="mailto:office@serenityyachting.club">office@serenityyachting.club</a></li>
-          <li><span>Години</span> Офіс: Пн–Пт, 10:00–19:00 · підтримка 24/7</li>
-          <li><span>Соцмережі</span> <a href="https://www.instagram.com/serenityyachting.club" target="_blank" rel="noopener">Instagram</a>, <a href="https://t.me/nikkiholiday" target="_blank" rel="noopener">Telegram</a></li>
-        </ul>
-      </div>
-
-      <form class="contact__form reveal" id="bookingForm">
-        <input type="hidden" name="_type" value="contact" />
-        <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
-        <div class="field">
-          <label for="name">Ім'я</label>
-          <input type="text" id="name" name="name" required placeholder="Як до вас звертатися" />
-        </div>
-        <div class="field">
-          <label for="contactline">Телефон або email</label>
-          <input type="text" id="contactline" name="contactline" required placeholder="Як з вами звʼязатися" />
-        </div>
-        <div class="field">
-          <label for="voyage">Напрям</label>
-          <select id="voyage" name="voyage">
-            <option>Еольські острови (Dolce Vita)</option>
-            <option>Сардинія та Корсика</option>
-            <option>Амальфі та Капрі</option>
-            <option>Саронічна затока, Греція</option>
-            <option>Wellness-ретрит (Еольські острови)</option>
-            <option>Приватний маршрут під запит</option>
-            <option>Ще не визначився(-лась)</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="message">Кілька слів</label>
-          <textarea id="message" name="message" rows="3" placeholder="Дати, кількість гостей, побажання"></textarea>
-        </div>
-        <button type="submit" class="btn btn--gold btn--full">Надіслати запит</button>
-        <p class="contact__disclaimer">Натискаючи «Надіслати», ви погоджуєтеся на обробку контактних даних для звʼязку.</p>
-      </form>
-    </div>
-  </section>
-
-  <!-- ░░ FOOTER ░░ -->
-  <footer class="footer">
-    <div class="footer__inner">
-      <div class="footer__brand">
-        <img class="nav__mark" src="assets/serenity-mark.svg" alt="" width="67" height="58" />
-        <div>
-          <p class="footer__name">Serenity Yachting Club</p>
-          <p class="footer__tag">Приватні яхтові подорожі світом · Київ</p>
-        </div>
-      </div>
-      <nav class="footer__links">
-        <a href="#about">Клуб</a>
-        <a href="#voyages">Подорожі</a>
-        <a href="#reviews">Відгуки</a>
-        <a href="#contact">Контакти</a>
-        <a href="https://www.instagram.com/serenityyachting.club" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://t.me/nikkiholiday" target="_blank" rel="noopener">Telegram</a>
-      </nav>
-      <p class="footer__copy">© <span id="year">2026</span> Serenity Yachting Club. Усі права захищено.<br /><small>Фотографії використані з відкритих джерел (Unsplash) для демонстрації.</small></p>
-    </div>
-  </footer>
-
-  <!-- ░░ PAYMENT MODAL ░░ -->
-  <div class="modal" id="payModal" aria-hidden="true">
-    <div class="modal__backdrop" data-close></div>
-    <div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal__close" data-close aria-label="Закрити">×</button>
-      <p class="kicker">Serenity Yachting Club</p>
-      <h3 class="modal__title" id="modalTitle">Бронювання</h3>
-      <div class="modal__body" id="modalBody"></div>
-    </div>
-  </div>
-
-  <script src="js/main.js"></script>
+  <div class="bg"></div>
+  <div class="veil"></div>
+  <main class="box">
+    <img class="mark" src="assets/serenity-mark.svg" alt="Serenity Yachting Club" />
+    <div class="name">Serenity</div>
+    <div class="sub">Yachting&nbsp;Club</div>
+    <p class="msg">Досить підглядати&nbsp;— іди на робочий сайт</p>
+    <a class="btn" href="https://serenityyachting.club">Перейти на сайт →</a>
+    <p class="url"><a href="https://serenityyachting.club">serenityyachting.club</a></p>
+  </main>
 </body>
 </html>
