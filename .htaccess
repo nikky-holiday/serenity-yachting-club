@@ -1,0 +1,38 @@
+# ── Serenity Yachting Club — server config ──────────────────────────────
+
+# Custom error page
+ErrorDocument 404 /404.html
+
+# ── Redirects for legacy/virtual paths → homepage anchors ──
+Redirect 301 /voyages  https://serenityyachting.club/#voyages
+Redirect 301 /about    https://serenityyachting.club/#about
+Redirect 301 /contacts https://serenityyachting.club/#contact
+Redirect 301 /faq      https://serenityyachting.club/#faq
+
+# ── Security headers ──
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# ── Caching (1 month for static assets) ──
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css              "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/svg+xml         "access plus 1 month"
+  ExpiresByType image/x-icon          "access plus 1 year"
+  ExpiresByType image/jpeg            "access plus 1 month"
+  ExpiresByType image/png             "access plus 1 month"
+  ExpiresByType image/webp            "access plus 1 month"
+  ExpiresByType image/avif            "access plus 1 month"
+  ExpiresByType text/html             "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|svg|ico|jpe?g|png|webp|avif|woff2?)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>
