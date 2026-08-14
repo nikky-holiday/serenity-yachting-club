@@ -1,2 +1,5 @@
 .DS_Store
 node_modules/
+
+# local dev helpers (preview server config)
+.claude/
