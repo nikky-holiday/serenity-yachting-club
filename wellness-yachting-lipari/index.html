@@ -148,6 +148,9 @@
     .wl-solo{margin-top:2.2rem;text-align:center}
     .wl-solo strong{display:block;font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.6rem);color:var(--navy);letter-spacing:.02em}
     .wl-solo p{max-width:600px;margin:.8rem auto 0;color:var(--muted);line-height:1.6}
+    .wl-solo__cta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
+    .btn--navy{background:var(--navy);color:var(--ivory);border-color:var(--navy)}
+    .btn--navy:hover{background:transparent;color:var(--navy);border-color:var(--navy)}
     /* price tag */
     .wl-tag{display:flex;align-items:baseline;gap:1.2rem;flex-wrap:wrap;margin:.4rem 0 .3rem}
     .wl-tag .big{font-family:var(--serif);font-size:clamp(3rem,7vw,4.4rem);line-height:1;color:var(--brass)}
@@ -176,8 +179,10 @@
     .wl-radio label:has(input:checked){border-color:var(--brass);background:rgba(176,141,87,.08)}
     /* sticky mobile CTA */
     .wl-sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem 1rem;background:var(--navy);border-top:1px solid var(--line-light)}
-    .wl-sticky .info{font-family:var(--sans);color:var(--ivory);font-size:.82rem;line-height:1.3}
-    .wl-sticky .info b{color:var(--brass-2)}
+    .wl-sticky .info{display:flex;align-items:center;gap:.5rem;font-family:var(--serif);color:var(--ivory);font-size:1.35rem;line-height:1.2;white-space:nowrap}
+    .wl-sticky .info .arw{color:var(--brass-2);font-family:var(--sans);font-size:1.25rem;animation:arwNudge 1.8s var(--ease) infinite}
+    @keyframes arwNudge{0%,100%{transform:translateX(0);opacity:.75}50%{transform:translateX(5px);opacity:1}}
+    @media(prefers-reduced-motion:reduce){.wl-sticky .info .arw{animation:none}}
     @media(max-width:900px){
       .wl-format,.wl-usp,.wl-two,.wl-experts,.wl-food{grid-template-columns:1fr 1fr}
       .wl-eb__in{grid-template-columns:1fr}
@@ -473,7 +478,10 @@
     <div class="wl-solo">
       <strong>Можна приїхати самій</strong>
       <p>Ми створюємо жіночу групу, де легко знайомитися й знаходити своїх, але при цьому у кожної залишається достатньо особистого простору.</p>
-      <p style="margin-top:1.4rem"><a href="#book" class="btn btn--gold">Я їду сама — розкажіть деталі →</a></p>
+      <div class="wl-solo__cta">
+        <a href="#book" class="btn btn--gold" data-solo="сама">Я їду сама — розкажіть деталі →</a>
+        <a href="#book" class="btn btn--navy" data-solo="з подругою">Їду з подругою →</a>
+      </div>
     </div>
   </section>
 
@@ -619,7 +627,7 @@
   </footer>
 
   <!-- sticky mobile CTA -->
-  <div class="wl-sticky"><div class="info">H&amp;W Sicily · 3–10 Oct<br /><b>2100 €</b> · перші 5 — 2000 €</div><a href="#book" class="btn btn--gold" style="padding:.7rem 1.4rem">Забронювати</a></div>
+  <div class="wl-sticky"><div class="info">Я готова <span class="arw" aria-hidden="true">→</span></div><a href="#book" class="btn btn--gold" style="padding:.7rem 1.4rem">Забронювати</a></div>
 
   <script>
   (function(){
@@ -643,6 +651,15 @@
     });
     document.querySelectorAll('.wl-sil').forEach(function(g){
       g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(g.getAttribute('data-id'));}});
+    });
+    /* «Я їду сама» / «Їду з подругою» → одразу відмічаємо у формі бронювання */
+    document.querySelectorAll('[data-solo]').forEach(function(a){
+      a.addEventListener('click',function(){
+        var val=a.getAttribute('data-solo');
+        var r=document.querySelector('input[name="solo"][value="'+val+'"]');
+        if(r){r.checked=true;}
+        if(typeof window.gtag==='function'){window.gtag('event','choose_company',{company:val});}
+      });
     });
     if(xb)xb.addEventListener('click',close);
     if(lb)lb.addEventListener('click',function(e){if(e.target===lb)close();});
