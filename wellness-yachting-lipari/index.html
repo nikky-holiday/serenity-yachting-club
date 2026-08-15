@@ -27,7 +27,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="SERENITY H&amp;W SICILY — Wellness-подорож Ліпарськими островами" />
   <meta property="og:description" content="7 днів на катамарані серед вулканічних островів Сицилії: йога, mindfulness, нутритивне меню, жіноча компанія. 3–10 жовтня 2026." />
-  <meta property="og:image" content="https://serenityyachting.club/assets/wellness/wellness-women-bow.jpg" />
+  <meta property="og:image" content="https://serenityyachting.club/assets/wellness/hero-sunset.jpg" />
   <meta property="og:url" content="https://serenityyachting.club/wellness-yachting-lipari/" />
   <link rel="icon" type="image/svg+xml" href="../assets/serenity-mark.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -142,11 +142,11 @@
     .wl-exp__b li::before{content:'·';position:absolute;left:.3rem;color:var(--brass)}
     .wl-exp__dir{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padding-top:.9rem}
     .wl-exp__ig{display:inline-block;margin-top:.7rem;font-family:var(--sans);font-size:.8rem;color:var(--brass);text-decoration:none;letter-spacing:.04em}
-    /* food */
-    .wl-food{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem}
-    .wl-food figure{margin:0;overflow:hidden;border-radius:10px;aspect-ratio:1/1;position:relative}
-    .wl-food img{width:100%;height:100%;object-fit:cover;display:block}
-    .wl-food figcaption{position:absolute;left:0;right:0;bottom:0;padding:.7rem .8rem;font-family:var(--sans);font-size:.78rem;color:#fff;background:linear-gradient(to top,rgba(20,32,46,.8),transparent)}
+    /* food → зразок меню на день */
+    .wl-menu__k{text-align:center;margin-top:2rem;font-family:var(--sans);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brass)}
+    .wl-menu{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.2rem}
+    .wl-menu figure{margin:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+    .wl-menu img{width:100%;height:auto;display:block}
     /* yachting experience / life on board */
     .wl-why__lead{max-width:760px;margin:1.2rem auto 0;text-align:center;color:var(--muted);line-height:1.55}
     .wl-why__lead b{color:var(--navy);font-weight:500}
@@ -196,13 +196,6 @@
     .wl-tag .big{font-family:var(--serif);font-size:clamp(3rem,7vw,4.4rem);line-height:1;color:var(--brass)}
     .wl-tag .per{font-family:var(--sans);color:var(--muted);letter-spacing:.06em}
     .wl-eb-line{font-family:var(--sans);font-size:.92rem;letter-spacing:.08em;text-transform:uppercase;color:#8a6d3f;margin-bottom:1.4rem}
-    /* photosession */
-    .wl-photo{position:relative;max-width:var(--wrap);margin:0 auto;border-radius:16px;overflow:hidden;min-height:340px;display:flex;align-items:center}
-    .wl-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-    .wl-photo__v{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,32,46,.82),rgba(20,32,46,.35))}
-    .wl-photo__c{position:relative;padding:2.6rem 2.4rem;max-width:620px;color:var(--ivory)}
-    .wl-photo__c .k{color:var(--brass-2);font-family:var(--sans);letter-spacing:.2em;text-transform:uppercase;font-size:.78rem;margin-bottom:.8rem}
-    .wl-photo__c h2{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15;margin-bottom:1rem}
     /* final */
     .wl-final{position:relative;min-height:78vh;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--ivory)}
     .wl-final__bg{position:absolute;inset:0;background-size:cover;background-position:center}
@@ -294,6 +287,8 @@
       .wl-strip__track{grid-auto-columns:74%;gap:.7rem}
       .wl-strip figcaption{font-size:.7rem}
 
+      .wl-menu{grid-template-columns:1fr 1fr;gap:.7rem;margin-top:1rem}
+
       /* ── mindfulness ── */
       .wl-mind__in{padding:2.6rem 1.15rem}
       .wl-mind__grid{gap:.8rem;margin-top:1.6rem}
@@ -307,9 +302,6 @@
       .wl-two__c{padding:1.2rem 1.2rem}
 
       /* ── фотосесія та фінал ── */
-      .wl-photo{min-height:0}
-      .wl-photo__c{padding:1.9rem 1.2rem;max-width:100%}
-      .wl-photo__v{background:linear-gradient(180deg,rgba(20,32,46,.55),rgba(20,32,46,.88))}
       .wl-final{min-height:auto;padding:3rem 0}
       .wl-final__c{padding:2.4rem 1.15rem}
 
@@ -332,7 +324,7 @@
     }
     /* ── легші фонові зображення для мобільного інтернету ── */
     @media(max-width:820px){
-      .geohero__media{background-image:url('../assets/wellness/wellness-women-bow-m.jpg')!important}
+      .geohero__media{background-image:url('../assets/wellness/hero-sunset-m.jpg')!important}
       .wl-imap__bg{background-image:url('../assets/wellness/sat-bg-m.jpg')}
       .wl-final__bg{background-image:url('../assets/wellness/wellness-sunset2-m.jpg')!important}
     }
@@ -363,11 +355,11 @@
 
   <!-- ░░ 1. HERO ░░ -->
   <section class="geohero">
-    <div class="geohero__media" style="background-image:url('../assets/wellness/wellness-women-bow.jpg')"></div>
+    <div class="geohero__media" style="background-image:url('../assets/wellness/hero-sunset.jpg');background-position:center 32%"></div>
     <div class="geohero__veil"></div>
     <div class="geohero__content">
       <h1>SERENITY H&amp;W SICILY</h1>
-      <p class="wl-hero__meta">3–10 жовтня 2026 · Сицилія та Ліпарські острови</p>
+      <p class="wl-hero__meta"><span style="white-space:nowrap">3–10 жовтня 2026</span> · <span style="white-space:nowrap">Сицилія та Ліпарські острови</span></p>
       <p class="wl-hero__sub">Wellness-канікули для дорослих дівчат</p>
       <p class="geohero__lead">7 днів на катамарані серед вулканічних островів Сицилії, де ми поєднаємо море, жіночу компанію, yoga &amp; mindfulness, Health&nbsp;&amp;&nbsp;Wellness, авторське нутритивне середземноморське меню та достатньо вільного часу, щоб просто жити своє красиве італійське життя.</p>
       <div class="wl-tags">
@@ -386,15 +378,15 @@
     <h2 class="section-title" style="text-align:center">Один день — три настрої</h2>
     <div class="wl-format">
       <article class="wl-card">
-        <div class="wl-card__img"><img src="../assets/wellness/wellness-yoga2.jpg" alt="Світанкова йога на палубі катамарана" loading="lazy"  srcset="../assets/wellness/wellness-yoga2-m.jpg 820w, ../assets/wellness/wellness-yoga2.jpg 1400w" sizes="(max-width:600px) 100vw, 33vw" decoding="async" /></div>
+        <div class="wl-card__img"><img src="../assets/wellness/rhythm-yoga.jpg" srcset="../assets/wellness/rhythm-yoga-m.jpg 820w, ../assets/wellness/rhythm-yoga.jpg 1400w" sizes="(max-width:600px) 100vw, 33vw" alt="Йога на світанку з видом на море" loading="lazy" decoding="async" /></div>
         <div class="wl-card__body"><p class="k">Світанок</p><h3>Йога на світанку</h3><p>Щоранку — м'яка практика в новому мальовничому місці: рух, дихання й тиша, поки море ще спить.</p></div>
       </article>
       <article class="wl-card">
-        <div class="wl-card__img"><img src="../assets/wellness/wellness-turquoise.jpg" alt="Бірюзова бухта Ліпарських островів" loading="lazy"  srcset="../assets/wellness/wellness-turquoise-m.jpg 820w, ../assets/wellness/wellness-turquoise.jpg 1400w" sizes="(max-width:600px) 100vw, 33vw" decoding="async" /></div>
+        <div class="wl-card__img"><img src="../assets/wellness/rhythm-sea.jpg" srcset="../assets/wellness/rhythm-sea-m.jpg 820w, ../assets/wellness/rhythm-sea.jpg 1400w" sizes="(max-width:600px) 100vw, 33vw" alt="Бухта з катамараном серед островів" loading="lazy" decoding="async" /></div>
         <div class="wl-card__body"><p class="k">День</p><h3>Море та острови</h3><p>Бухти, нові острови, SUP, сонце й довгі обіди. Купання просто з катамарана й новий краєвид щодня.</p></div>
       </article>
       <article class="wl-card">
-        <div class="wl-card__img"><img src="../assets/wellness/wellness-sunset.jpg" alt="Захід сонця на палубі катамарана" loading="lazy"  srcset="../assets/wellness/wellness-sunset-m.jpg 820w, ../assets/wellness/wellness-sunset.jpg 1400w" sizes="(max-width:600px) 100vw, 33vw" decoding="async" /></div>
+        <div class="wl-card__img"><img src="../assets/wellness/rhythm-evening.jpg" srcset="../assets/wellness/rhythm-evening-m.jpg 820w, ../assets/wellness/rhythm-evening.jpg 1400w" sizes="(max-width:600px) 100vw, 33vw" alt="Золотий захід сонця над морем" loading="lazy" decoding="async" /></div>
         <div class="wl-card__body"><p class="k">Вечір</p><h3>Тиша та практики</h3><p>Ресторани, yoga nidra, sound healing, чайна церемонія, жіночі кола — або просто захід сонця на палубі.</p></div>
       </article>
     </div>
@@ -412,12 +404,12 @@
         <ul>
           <li>персональна консультація нутриціолога</li>
           <li>індивідуальна практика з йога-тічеркою</li>
-          <li>ваучер на суму 300 €</li>
+          <li>ваучер на суму 300 € на наступну яхтову подорож</li>
         </ul>
         <a href="#book" class="btn btn--gold">Забрати early booking →</a>
       </div>
       <div class="wl-eb__bonus">
-        <img src="../assets/wellness/wellness-white2.jpg" alt="Персональна фотосесія на Ліпарських островах" loading="lazy"  srcset="../assets/wellness/wellness-white2-m.jpg 820w, ../assets/wellness/wellness-white2.jpg 1400w" sizes="(max-width:600px) 100vw, 33vw" decoding="async" />
+        <img src="../assets/wellness/bonus-camera.jpg" srcset="../assets/wellness/bonus-camera-m.jpg 820w, ../assets/wellness/bonus-camera.jpg 1200w" sizes="(max-width:900px) 100vw, 30vw" alt="Фотоапарат на штативі на тлі заходу сонця над морем" loading="lazy" decoding="async" />
         <p>Додатковий WOW-бонус: серед усіх учасниць <b>SERENITY H&amp;W SICILY</b> ми розіграємо персональну фотосесію на одному з Ліпарських островів.</p>
       </div>
     </div>
@@ -507,12 +499,12 @@
 
     <div class="wl-strip">
       <h3>Подивись, де ти житимеш наступні сім днів</h3>
-      <div class="wl-strip__track">
-        <figure><img src="../assets/wellness/wellness-women-bow.jpg" srcset="../assets/wellness/wellness-women-bow-m.jpg 820w, ../assets/wellness/wellness-women-bow.jpg 1400w" sizes="(max-width:600px) 80vw, 26vw" alt="Ніс катамарана — місце для засмаги" loading="lazy" decoding="async" /><figcaption>Місце для засмаги</figcaption></figure>
-        <figure><img src="../assets/wellness/wellness-turquoise.jpg" srcset="../assets/wellness/wellness-turquoise-m.jpg 820w, ../assets/wellness/wellness-turquoise.jpg 1400w" sizes="(max-width:600px) 80vw, 26vw" alt="Бірюзова бухта біля борту" loading="lazy" decoding="async" /><figcaption>Море за два кроки</figcaption></figure>
-        <figure><img src="../assets/wellness/food2.jpg" srcset="../assets/wellness/food2-m.jpg 820w, ../assets/wellness/food2.jpg 1400w" sizes="(max-width:600px) 80vw, 26vw" alt="Сніданок із видом на море" loading="lazy" decoding="async" /><figcaption>Сніданки з видом</figcaption></figure>
-        <figure><img src="../assets/wellness/cove-pines.jpg" srcset="../assets/wellness/cove-pines-m.jpg 820w, ../assets/wellness/cove-pines.jpg 1400w" sizes="(max-width:600px) 80vw, 26vw" alt="Тиха бухта в соснах" loading="lazy" decoding="async" /><figcaption>Місце для тиші</figcaption></figure>
-        <figure><img src="../assets/wellness/wellness-sunset.jpg" srcset="../assets/wellness/wellness-sunset-m.jpg 820w, ../assets/wellness/wellness-sunset.jpg 1400w" sizes="(max-width:600px) 80vw, 26vw" alt="Вечір на палубі катамарана" loading="lazy" decoding="async" /><figcaption>Вечори на борту</figcaption></figure>
+            <div class="wl-strip__track">
+        <figure><img src="../assets/wellness/strip-sun.jpg" srcset="../assets/wellness/strip-sun-m.jpg 820w, ../assets/wellness/strip-sun.jpg 1400w" sizes="(max-width:600px) 80vw, 26vw" alt="Дівчина на носі катамарана" loading="lazy" decoding="async" /><figcaption>Місце для засмаги</figcaption></figure>
+        <figure><img src="../assets/wellness/strip-water.jpg" srcset="../assets/wellness/strip-water-m.jpg 820w, ../assets/wellness/strip-water.jpg 1400w" sizes="(max-width:600px) 80vw, 26vw" alt="Рука в бірюзовій воді біля борту" loading="lazy" decoding="async" /><figcaption>Море за два кроки</figcaption></figure>
+        <figure><img src="../assets/wellness/strip-breakfast.jpg" srcset="../assets/wellness/strip-breakfast-m.jpg 820w, ../assets/wellness/strip-breakfast.jpg 1400w" sizes="(max-width:600px) 80vw, 26vw" alt="Сніданок із круасаном на борту" loading="lazy" decoding="async" /><figcaption>Сніданки з видом</figcaption></figure>
+        <figure><img src="../assets/wellness/strip-quiet.jpg" srcset="../assets/wellness/strip-quiet-m.jpg 820w, ../assets/wellness/strip-quiet.jpg 1400w" sizes="(max-width:600px) 80vw, 26vw" alt="Книга й кава на палубі" loading="lazy" decoding="async" /><figcaption>Місце для тиші</figcaption></figure>
+        <figure><img src="../assets/wellness/strip-evening.jpg" srcset="../assets/wellness/strip-evening-m.jpg 820w, ../assets/wellness/strip-evening.jpg 1400w" sizes="(max-width:600px) 80vw, 26vw" alt="Вечір на палубі катамарана" loading="lazy" decoding="async" /><figcaption>Вечори на борту</figcaption></figure>
       </div>
     </div>
   </section>
@@ -570,7 +562,8 @@
         <div class="wl-exp__ph"><img src="../assets/wellness/exp-mykola.jpg" alt="Микола Кучугурний — капітан" loading="lazy" /></div>
         <div class="wl-exp__b"><h3>Микола Кучугурний</h3><p class="wl-exp__role">Sea · safety · route · yacht</p>
         <ul><li>10+ років досвіду в організації яхтових подорожей</li><li>50+ проведених яхтових турів</li><li>500+ гостей</li></ul>
-        <p class="wl-exp__dir">Відповідає за море, маршрут і безпеку.</p></div>
+        <p class="wl-exp__dir">Відповідає за море, маршрут і безпеку.</p>
+        <a class="wl-exp__ig" href="https://www.instagram.com/salvadormedia" target="_blank" rel="noopener">@salvadormedia</a></div>
       </article>
     </div>
   </section>
@@ -580,11 +573,12 @@
     <p class="kicker" style="text-align:center">Food experience</p>
     <h2 class="section-title" style="text-align:center">Меню створює нутриціолог. Готує кок.<br />Ти — відпочиваєш.</h2>
     <p class="geosec__lead" style="text-align:center;max-width:820px;margin-left:auto;margin-right:auto">На кожному катамарані — свій кок. Гості не готують і не чергують на кухні. Можна разом піти на локальний ринок, вибрати сицилійські томати, фрукти чи свіжу рибу — але далі готує команда. <b>Healthy тут не означає голодно, прісно або «без пасти, бо ми на wellness».</b></p>
-    <div class="wl-food">
-      <figure><img src="../assets/wellness/food2.jpg" alt="Сніданок на терасі біля моря" loading="lazy"  srcset="../assets/wellness/food2-m.jpg 820w, ../assets/wellness/food2.jpg 1400w" sizes="(max-width:600px) 100vw, 33vw" decoding="async" /><figcaption>Сніданок біля моря</figcaption></figure>
-      <figure><img src="../assets/wellness/food1.jpg" alt="Здоровий сніданок на катамарані" loading="lazy"  srcset="../assets/wellness/food1-m.jpg 820w, ../assets/wellness/food1.jpg 1400w" sizes="(max-width:600px) 100vw, 33vw" decoding="async" /><figcaption>Сніданок на катамарані</figcaption></figure>
-      <figure><img src="../assets/wellness/wellness-turquoise.jpg" alt="Обід із видом на бухту" loading="lazy"  srcset="../assets/wellness/wellness-turquoise-m.jpg 820w, ../assets/wellness/wellness-turquoise.jpg 1400w" sizes="(max-width:600px) 100vw, 33vw" decoding="async" /><figcaption>Обід із видом на море</figcaption></figure>
-      <figure><img src="../assets/wellness/cove-pines.jpg" alt="Стоянка у бірюзовій бухті" loading="lazy"  srcset="../assets/wellness/cove-pines-m.jpg 820w, ../assets/wellness/cove-pines.jpg 1400w" sizes="(max-width:600px) 100vw, 33vw" decoding="async" /><figcaption>Аперитив у бухті</figcaption></figure>
+    <p class="wl-menu__k">Зразок меню на день · Sicilian Comfort</p>
+    <div class="wl-menu">
+      <figure><img src="../assets/wellness/menu-breakfast.jpg" alt="Меню: сніданок" loading="lazy" decoding="async" /></figure>
+      <figure><img src="../assets/wellness/menu-lunch.jpg" alt="Меню: обід" loading="lazy" decoding="async" /></figure>
+      <figure><img src="../assets/wellness/menu-snack.jpg" alt="Меню: перекус" loading="lazy" decoding="async" /></figure>
+      <figure><img src="../assets/wellness/menu-dinner.jpg" alt="Меню: вечеря" loading="lazy" decoding="async" /></figure>
     </div>
     <p style="text-align:center;margin-top:1.8rem"><a href="#book" class="btn btn--gold">Хочу на сніданок після йоги →</a></p>
   </section>
@@ -673,19 +667,6 @@
     <p style="text-align:center;margin-top:1.8rem"><a href="#book" class="btn btn--gold">Забронювати місце →</a></p>
   </section>
 
-  <!-- ░░ 12. PHOTOSESSION ░░ -->
-  <section class="wl-band">
-    <div class="wl-photo">
-      <img src="../assets/wellness/wellness-white1.jpg" alt="Fashion-travel фотосесія на Сицилії" loading="lazy"  srcset="../assets/wellness/wellness-white1-m.jpg 820w, ../assets/wellness/wellness-white1.jpg 1400w" sizes="(max-width:600px) 100vw, 33vw" decoding="async" />
-      <div class="wl-photo__v"></div>
-      <div class="wl-photo__c">
-        <p class="k">І ще один подарунок від Serenity</p>
-        <h2>Персональна фотосесія на одному з Ліпарських островів</h2>
-        <p style="color:rgba(246,241,231,.85);line-height:1.6;margin-bottom:1.2rem">Серед усіх учасниць H&amp;W Sicily ми розіграємо професійну зйомку у справжньому італійському антуражі.</p>
-        <a href="#book" class="btn btn--gold">Хочу бути там →</a>
-      </div>
-    </div>
-  </section>
 
   <!-- ░░ 13. FAQ ░░ -->
   <section class="faq" id="faq">
