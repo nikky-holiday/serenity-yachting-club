@@ -594,7 +594,6 @@ img,svg,video,iframe{max-width:100%}
   .geohero{min-height:auto;padding-top:4.6rem;padding-bottom:2.6rem}
   .hero__title{font-size:clamp(1.95rem,8.4vw,2.6rem);max-width:100%}
   .hero__lead{font-size:1.02rem;line-height:1.5;margin-top:1.2rem}
-  .geohero h1{font-size:clamp(1.85rem,8vw,2.5rem);max-width:100%}
   .geohero__lead{font-size:1rem;line-height:1.5}
   .geohero__meta{gap:.55rem 1.2rem;margin:1.2rem 0 1.5rem;font-size:.88rem}
 
