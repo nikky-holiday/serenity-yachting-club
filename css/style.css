@@ -617,6 +617,24 @@ img,svg,video,iframe{max-width:100%}
   /* ── акордеони/FAQ: більша зона натискання ── */
   .acc__head{min-height:56px;padding-top:1rem;padding-bottom:1rem}
 
+
+  /* ── картки подорожей: компактніше на телефоні ── */
+  .voyage__body{padding:1.2rem 1.1rem 1.3rem}
+  .voyage__body h3{font-size:1.3rem;margin-bottom:.6rem}
+  .voyage__desc{font-size:.92rem;line-height:1.5}
+  .voyage__meta{margin:1rem 0;padding-top:.9rem;gap:.4rem}
+  .voyage__meta li{font-size:.85rem}
+  .voyage__foot{padding-top:1rem;gap:.8rem}
+  .voyage__price{font-size:1.3rem}
+  .voyage--feature{margin-bottom:1.4rem}
+  .voyage--feature .voyage__img{min-height:0;aspect-ratio:4/3}
+  .voyage--feature .voyage__body{padding:1.3rem 1.1rem 1.4rem}
+  .voyage--feature .voyage__body h3{font-size:1.45rem;line-height:1.15}
+  .voyage--feature .voyage__desc{font-size:.94rem}
+  .voyage__badge{font-size:.62rem;letter-spacing:.14em;padding:.5rem .8rem}
+  .voyage__actions{width:100%;gap:.6rem}
+  .voyage__actions .voyage__pay,.voyage__actions .voyage__more{flex:1;text-align:center;justify-content:center}
+
   /* ── форма: комфортні поля (16px = без авто-зуму в iOS) ── */
   .field input,.field select,.field textarea{font-size:16px;padding:.85rem 0}
   .btn--full{width:100%}
